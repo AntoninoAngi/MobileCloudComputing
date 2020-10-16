@@ -1,0 +1,249 @@
+openapi: "3.0.0"
+
+info:
+  title: Mobile Cloud Computing Project Backend (group 01)
+  description: Server providing backend services for the MCC project
+  version: 1.0.0
+
+paths:
+  /project:
+    post:
+      description: "Create a project"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Project"
+      responses:
+        201:
+          description: "Project created"
+          content:
+            'application/json':
+              schema:
+                type: string
+                description: "returns a unique project ID after successful project creation"
+        default:
+          description: "Unexpected error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /project/{project_id}:
+    delete:
+      description: "Delete a project"
+      parameters:
+      - name: project_id
+        in: path
+        description: ID of project to delete
+        required: true
+        schema:
+          type: string
+      responses:
+        204:
+          description: "Task deleted"
+        default:
+          description: "Unexpected error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    put:
+      description: "Add members to a project"
+      parameters:
+      - name: project_id
+        in: path
+        description: ID of project to delete
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+      responses:
+        201:
+          description: "Member(s) added"
+        default:
+          description: "Unexpected error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    post:
+      description: "Create a task"
+      parameters:
+      - name: project_id
+        in: path
+        description: ID of project to delete
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Task"
+      responses:
+        201:
+          description: "Task created"
+          content:
+            'application/json':
+              schema:
+                type: string
+                description: "returns task ID after successful task creation"
+        default:
+          description: "Unexpected error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /task/{task_id}:
+    description: "Update a task"
+    put:
+      parameters:
+      - name: task_id
+        in: path
+        description: ID of task to be updated
+        required: true
+        schema:
+          type: string
+      responses:
+        201:
+          description: "Task updated"
+        default:
+          description: "Unexpected error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /project/{project_id}/{task_id}:
+    put:
+      description: "Assign a task to a user"
+      parameters:
+      - name: project_id
+        in: path
+        description: ID of project to delete
+        required: true
+        schema:
+          type: string
+      - name: task_id
+        in: path
+        description: ID of task to be updated
+        required: true
+        schema:
+          type: string
+      responses:
+        201:
+          description: "Task assigned to user"
+        default:
+          description: "Unexpected error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+components:
+  schemas:
+    User:
+      type: object
+      required:
+        - username
+        - email
+        - password
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        profile_image:
+          type: string
+          description: "Link to the resource in Firebase Cloud Storage"
+        projects_index:
+          type: array
+          description: "Array of key/value pairs where keys are projects names and values are booleans (always true in fact)"
+          items:
+            type: object
+            additionalProperties:
+              type: boolean
+    Project:
+      type: object
+      required:
+        - creation_date
+        - name
+        - description
+      properties:
+        creation_date:
+          type: string
+          format: date-time
+        name:
+          type: string
+        project_id:
+          type: string
+        description:
+          type: string
+        individual_project:
+          type: boolean
+          description: "true if the project is individual, false if it is collaborative"
+        administrator:
+          type: string
+        last_update:
+          type: string
+          format: date-time
+        deadline:
+          type: string
+          format: date-time
+        badge:
+          type: string
+          description: "Link to the resource in Firebase Cloud Storage"
+        keywords:
+          type: array
+          items:
+            type: string
+        users_index:
+          type: array
+          description: "Array of key/value pairs where keys are users names and values are booleans (always true in fact)"
+          items:
+            type: object
+            additionalProperties:
+              type: boolean
+    Task:
+      type: object
+      required:
+        - name
+        - description
+        - status
+        - deadline
+      properties:
+        task_id:
+          type: string
+        status:
+          type: string
+          enum:
+            - "pending"
+            - "on-going"
+            - "completed"
+        deadline:
+          type: string
+          format: date-time
+        description:
+          type: string
+        users:
+          type: array
+          items:
+            type: string
+    Error:
+      type: object
+      required:
+        - "code"
+        - "message"
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string

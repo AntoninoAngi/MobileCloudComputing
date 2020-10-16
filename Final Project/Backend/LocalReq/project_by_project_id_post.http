@@ -1,0 +1,9 @@
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "deadline": "2000-01-23T04:56:07.000+00:00",
+  "description": "description",
+  "status": "pending",
+  "users": [
+    "users",
+    "users"
+  ]
+}' 'http://localhost:8080/project/LuEqXWUeuzPhxR2A53M'

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/addpdf"
+        android:title="Add PDF"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/addtext"
+        android:title="Add Text Document"
+        app:showAsAction="never"/>
+    <item android:id="@+id/addmusic"
+        android:title="Add Media"
+        app:showAsAction="never">
+
+    </item>
+
+</menu>

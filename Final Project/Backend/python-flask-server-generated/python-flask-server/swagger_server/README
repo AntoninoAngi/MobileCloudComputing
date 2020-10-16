@@ -1,0 +1,14 @@
+To deploy api on gcloud endpoints (already done but without the last implementations): 
+
+  $ gcloud components update
+  $ gcloud auth login
+  $ gcloud config set project mcc-fall-2019-g01-258815
+  $ cd swagger
+  $ gcloud endpoints services deploy swagger.yaml
+  
+To deploy app on app engine:
+
+    $ gcloud init
+    $ gcloud app deploy
+    
+The script is available

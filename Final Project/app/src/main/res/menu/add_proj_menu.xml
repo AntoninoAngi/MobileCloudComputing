@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".AddProject">
+
+
+    <item
+        android:id="@+id/cancel_creation"
+        android:icon="@drawable/ic_close_white_24dp"
+        android:orderInCategory="200"
+        android:title="close"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/save_project"
+        android:orderInCategory="300"
+        android:title="Save"
+        app:showAsAction="ifRoom"
+        android:layout_gravity="left|start"
+        />
+
+
+</menu>

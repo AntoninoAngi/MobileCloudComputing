@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_settings"
+        android:title="Generate PDF"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/delete_project"
+        android:title="Delete Project"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/addmember"
+        android:title="Add member"
+        app:showAsAction="never">
+
+    </item>
+
+</menu>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/colorAccent"
+    android:layout_height="176dp"
+    android:padding="16dp"
+    android:gravity="bottom"
+    android:theme = "@style/ThemeOverlay.AppCompat.Dark">
+
+    <ImageView
+        android:layout_width="85dp"
+        android:layout_height="87dp"
+        android:src="@mipmap/ic_launcher_round"
+        android:id="@+id/pallino_foto"/>
+
+    <TextView
+        android:id="@+id/email3"
+        android:layout_width="186dp"
+        android:layout_height="37dp"
+        android:paddingTop="8dp"
+        android:textColor="#105A06" />
+
+
+</LinearLayout>

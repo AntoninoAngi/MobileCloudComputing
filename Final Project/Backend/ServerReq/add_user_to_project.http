@@ -1,0 +1,21 @@
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d 
+'{
+"users":[
+   {
+     "ID" : "kavFS93ANzRYgDZDHsaTB5N71Ob2",
+    "username" : "user_1",
+    "email" : "user_3@gmail.com",
+    "password" : "******",
+    "profile_image" : "https://firebase-cloud-store/toto.png"
+  },
+  {
+    "ID" :  "havFS93ANzRYgDZDHsaTB5N71Ob2",
+    "username" : "user_2",
+    "email" : "user_3@gmail.com",
+    "password" : "******",
+    "profile_image" : "https://firebase-cloud-store/toto.png"
+  }
+
+]
+}' 
+'https://mcc-fall-2019-g01-258815.appspot.com/project/LvXGDbL9w1BsBCGczoi'

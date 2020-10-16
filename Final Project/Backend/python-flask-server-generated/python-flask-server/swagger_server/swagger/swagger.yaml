@@ -1,0 +1,473 @@
+---
+swagger: "2.0"
+info:
+  description: "Server providing backend services for the MCC project"
+  version: "1.0.0"
+  title: "Mobile Cloud Computing Project Backend (group 01)"
+  contact: {}
+host: "mcc-fall-2019-g01-258815.appspot.com"
+basePath: /
+schemes:
+- "http"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /project:
+    post:
+      summary: "project_post"
+      description: "Create a project"
+      operationId: "project_post"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: ""
+        required: false
+        schema:
+          $ref: "#/definitions/Project"
+      responses:
+        "201":
+          description: "Project created"
+          headers: {}
+          schema:
+            type: "string"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      deprecated: false
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+  /user/{username}:
+    get:
+      summary: "Get user"
+      description: "Return user information"
+      operationId: "get_user_by_username"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "username"
+        in: "path"
+        description: "Username"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/User"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+  /projects/{username}:
+    get:
+      summary: "Get projects of user"
+      description: "Return Full projects information for one user"
+      operationId: "get_projects_by_username"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "username"
+        in: "path"
+        description: "Username"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Project"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+  /keywords:
+    get:
+      summary: "Get keywords"
+      description: "Return all different keywords"
+      operationId: "get_keywords"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              type: "string"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+  /searchProjectByKeyword/{keyword}:
+    get:
+      summary: "Finds projects by keyword"
+      description: "Returns full projects names which correspond to search"
+      operationId: "get_projects_by_keyword"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "keyword"
+        in: "path"
+        description: "Content of search"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              type: "string"
+        "404":
+          description: "Project not found"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+  /searchProjectByName/{name}:
+    get:
+      summary: "Finds projects by name"
+      description: "Returns full projects names which correspond to search"
+      operationId: "get_projects_by_name"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "name"
+        in: "path"
+        description: "Content of search"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              type: "string"
+        "404":
+          description: "Project not found"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+  /project/{project_id}:
+    get:
+      summary: "Get project"
+      description: "Returns project information"
+      operationId: "get_project_by_id"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "project_id"
+        in: "path"
+        description: "ID of project to retrieve"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Project"
+        "404":
+          description: "Project not found"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+    post:
+      summary: "project_project_id_post"
+      description: "Create a task"
+      operationId: "project_by_project_id_post"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "project_id"
+        in: "path"
+        description: "ID of project to delete"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: ""
+        required: false
+        schema:
+          $ref: "#/definitions/Task"
+      responses:
+        "201":
+          description: "Task created"
+          headers: {}
+          schema:
+            type: "string"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      deprecated: false
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+    put:
+      summary: "project_project_id_put"
+      description: "Add members to a project"
+      operationId: "project_by_project_id_put"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "project_id"
+        in: "path"
+        description: "ID of project to delete"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: ""
+        required: false
+        schema:
+
+          properties:
+            items:
+              type: array
+              items:
+                $ref: "#/definitions/User"
+      responses:
+        "201":
+          description: "Member(s) added"
+          headers: {}
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      deprecated: false
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+    delete:
+      summary: "project_project_id_delete"
+      description: "Delete a project"
+      operationId: "project_by_project_id_delete"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "project_id"
+        in: "path"
+        description: "ID of project to delete"
+        required: true
+        type: "string"
+      responses:
+        "204":
+          description: "Task deleted"
+          headers: {}
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      deprecated: false
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+  /project/{project_id}/{task_id}:
+    put:
+      summary: "project_project_id_task_id_put"
+      description: "Assign a task to a user"
+      operationId: "project_by_project_id_and_task_id_put"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "project_id"
+        in: "path"
+        description: "ID of project to delete"
+        required: true
+        type: "string"
+      - name: "task_id"
+        in: "path"
+        description: "ID of task to be updated"
+        required: true
+        type: "string"
+      responses:
+        "201":
+          description: "Task assigned to user"
+          headers: {}
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      deprecated: false
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+  /task/{task_id}:
+    put:
+      summary: "task_task_id_put"
+      description: "Update a task"
+      operationId: "task_by_task_id_put"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "task_id"
+        in: "path"
+        description: "ID of task to be updated"
+        required: true
+        type: "string"
+      responses:
+        "201":
+          description: "Task updated"
+          headers: {}
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      deprecated: false
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+definitions:
+  User:
+    type: "object"
+    required:
+    - "email"
+    - "password"
+    - "username"
+    properties:
+      username:
+        type: "string"
+      email:
+        type: "string"
+      password:
+        type: "string"
+      profile_image:
+        type: "string"
+        description: "Link to the resource in Firebase Cloud Storage"
+      projects_index:
+        type: "array"
+        description: "Array of key/value pairs where keys are projects names and values\
+          \ are booleans (always true in fact)"
+        items:
+          type: "boolean"
+    title: "User"
+    example:
+      password: "password"
+      profile_image: "profile_image"
+      projects_index:
+      - true
+      - true
+      email: "email"
+      username: "username"
+  Project:
+    type: "object"
+    required:
+    - "creation_date"
+    - "description"
+    - "name"
+    properties:
+      creation_date:
+        type: "string"
+        format: "date-time"
+      name:
+        type: "string"
+      project_id:
+        type: "string"
+      description:
+        type: "string"
+      individual_project:
+        type: "boolean"
+        description: "true if the project is individual, false if it is collaborative"
+      administrator:
+        type: "string"
+      last_update:
+        type: "string"
+        format: "date-time"
+      deadline:
+        type: "string"
+        format: "date-time"
+      badge:
+        type: "string"
+        description: "Link to the resource in Firebase Cloud Storage"
+      keywords:
+        type: "array"
+        items:
+          type: "string"
+      tasks_list:
+        type: "array"
+        items:
+          type: "string"
+      attachments_list:
+        type: "array"
+        items:
+          type: "string"
+      users_index:
+        type: "array"
+        description: "Array of key/value pairs where keys are users names and values\
+          \ are booleans (always true in fact)"
+        items:
+          type: "string"
+    title: "Project"
+    example:
+      keywords:
+      - "keywords"
+      - "keywords"
+      description: "description"
+      creation_date: "2000-01-23T04:56:07.000+00:00"
+      tasks_list:
+      - "tasks_list"
+      - "tasks_list"
+      badge: "badge"
+      individual_project: true
+      administrator: "administrator"
+      project_id: "project_id"
+      users_index:
+      - true
+      - true
+      last_update: "2000-01-23T04:56:07.000+00:00"
+      name: "name"
+      attachments_list:
+      - "attachments_list"
+      - "attachments_list"
+      deadline: "2000-01-23T04:56:07.000+00:00"
+  Task:
+    type: "object"
+    required:
+    - "deadline"
+    - "description"
+    - "status"
+    properties:
+      task_id:
+        type: "string"
+      status:
+        type: "string"
+        enum:
+        - "pending"
+        - "ongoing"
+        - "completed"
+      deadline:
+        type: "string"
+        format: "date-time"
+      description:
+        type: "string"
+      users:
+        type: "array"
+        items:
+          type: "string"
+    title: "Task"
+    example:
+      description: "description"
+      task_id: "task_id"
+      deadline: "2000-01-23T04:56:07.000+00:00"
+      users:
+      - "users"
+      - "users"
+      status: "pending"
+  Error:
+    type: "object"
+    required:
+    - "code"
+    - "message"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      message:
+        type: "string"
+    title: "Error"

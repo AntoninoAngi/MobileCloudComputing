@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/projadd_ev_name"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:ems="1"
+        android:hint="Name"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageProject"
+        app:layout_constraintVertical_bias="0.068" />
+
+
+    <EditText
+        android:id="@+id/projadd_ev_description"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Description"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/projadd_ev_name"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <EditText
+        android:id="@+id/projadd_ev_datepaciker"
+        android:layout_width="206dp"
+        android:layout_height="41dp"
+        android:editable="false"
+        android:ems="10"
+        android:hint="dd-mm-yyyy 00:00:00"
+        android:inputType="none"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/projadd_tv_deadline"
+        app:layout_constraintVertical_bias="0.078" />
+
+    <EditText
+        android:id="@+id/projadd_tv_add_key"
+        android:layout_width="241dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="Keyword"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.435"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/projadd_ev_datepaciker"
+        app:layout_constraintVertical_bias="0.147" />
+
+    <ImageButton
+        android:id="@+id/imageProject"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:tag="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/projadd_pb_toolbar"
+        app:layout_constraintVertical_bias="0.042"
+        tools:srcCompat="@tools:sample/avatars[2]" />
+
+    <Switch
+        android:id="@+id/individualORgroup"
+        android:layout_width="46dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.435"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/keywordsToDisplay" />
+
+    <TextView
+        android:id="@+id/keywordsToDisplay"
+        android:layout_width="257dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="36dp"
+        android:text=""
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#05695F"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/projadd_tv_add_key"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/projadd_tv_deadline"
+        android:layout_width="240dp"
+        android:layout_height="23dp"
+        android:ems="10"
+        android:text="Deadline"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/projadd_ev_description"
+        app:layout_constraintVertical_bias="0.052" />
+
+    <TextView
+        android:id="@+id/projadd_tv_projecticon"
+        android:layout_width="131dp"
+        android:layout_height="18dp"
+        android:ems="10"
+        android:text="Project Icon"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageProject"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <TextView
+        android:id="@+id/individual_tv"
+        android:layout_width="75dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:text="Individual"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/individualORgroup"
+        app:layout_constraintTop_toBottomOf="@+id/keywordsToDisplay" />
+
+    <TextView
+        android:id="@+id/group_tv"
+        android:layout_width="56dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:text="Group"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/individualORgroup"
+        app:layout_constraintTop_toBottomOf="@+id/keywordsToDisplay" />
+
+    <ToggleButton
+        android:id="@+id/arrow_down"
+        android:layout_width="38dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_arrow_down"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toEndOf="@+id/projadd_ev_datepaciker"
+        app:layout_constraintTop_toBottomOf="@+id/projadd_tv_deadline" />
+
+    <include
+        android:id="@+id/projadd_pb_toolbar"
+        layout="@layout/toolbar">
+
+    </include>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

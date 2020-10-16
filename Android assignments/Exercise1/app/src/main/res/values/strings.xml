@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Exercise1</string>
+    <string name="action_settings">Settings</string>
+    <string name="upper_lower">Upper/Lower</string>
+    <string name="count_character">Count character</string>
+    <string name="uppercase_lowercase">Uppercase/Lowercase :</string>
+    <string name="count">Count :</string>
+    <string name="input_text">Input Text :</string>
+</resources>

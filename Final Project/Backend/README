@@ -1,0 +1,19 @@
+I. To run the server:
+
+1) Launch python virtual environment
+
+# source env/bin/activate
+
+2) Get in the right directory
+
+# cd python-flask-server-generated/python-flask-server/
+
+3) Launch server
+
+# python -m swagger_server
+
+II. Useful docs
+
+1) To write the requests (controllers): https://firebase.google.com/docs/database/admin/start
+
+2) To deploy server on App Engine with Cloud Endpoints: https://cloud.google.com/endpoints/docs/openapi/get-started-app-engine

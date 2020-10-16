@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Exercise002</string>
+    <string name="upload">Upload</string>
+    <string name="rotate">rotate</string>
+</resources>

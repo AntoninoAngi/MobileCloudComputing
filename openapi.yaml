@@ -1,0 +1,161 @@
+openapi: "3.0.0"
+
+info:
+  description: "API example"
+  version: "1.0.0"
+  title: "BEST API EVER"
+  termsOfService: "provar"
+  contact:
+    email: "blabla@gmai.com"
+
+components:
+  schemas:
+    Task:
+      required:
+        - name
+        - status
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        status:
+          type: string
+          minLength: 1
+          enum: [pending, ongoing, completed] 
+        created:
+          type: string
+          readOnly: true
+          format: date-time 
+    Tasks:
+      type: array
+      items:
+        $ref: '#/components/schemas/Task'
+    Error:
+      required:
+        - code
+        - message
+      type: object
+      properties: 
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+
+paths:
+  /task:
+    post:
+      requestBody:
+        required: true
+        content: 
+          application/json:
+            schema: 
+              $ref: '#/components/schemas/Task'
+              
+      responses:
+        201:
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+          description: Created
+        422:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unprocessable entity
+        default:
+            description: "unexpected error"
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Error'
+  /tasks:
+      get:
+        responses:
+          '200':
+            content: 
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Tasks'
+            description: OK
+          default:
+            description: "unexpected error"
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Error'
+  /task/{task_id}:
+      get:
+        parameters: 
+          - in: path
+            name: task_id
+            schema:
+              type: string
+            required: true
+            description: 'Task id'
+          
+        responses:
+          '200':
+            content: 
+              application/json:
+                schema: 
+                  $ref: '#/components/schemas/Task'
+            description: OK
+          default:
+            description: "unexpected error"
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Error'
+      put:
+        parameters: 
+          - in: path
+            name: task_id
+            schema:
+              type: string
+            required: true
+            description: 'Task id'
+            
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        responses:
+          '201':
+            content: 
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Task'
+            description: Created
+          default:
+            description: "unexpected error"
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Error'
+      delete:
+        parameters: 
+          - in: path
+            name: task_id
+            schema:
+              type: string
+            required: true
+            description: 'Task id'
+        responses:
+          '204':
+            description: No content
+          default:
+            description: "unexpected error"
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Error'

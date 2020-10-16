@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <Button
+        android:id="@+id/save_task_new"
+        android:layout_width="170dp"
+        android:layout_height="49dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:onClick="SaveData"
+        android:text="Save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.423"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userAssign"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/upload_button"
+        android:layout_width="192dp"
+        android:layout_height="52dp"
+        android:layout_below="@+id/new_task_toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="24dp"
+        android:onClick="Upload_photo"
+        android:text="Upload a photo to get the task description"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.225"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_task_toolbar"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/userAssign"
+        android:layout_width="271dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="Member name..."
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.307"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/projadd_ev_datepaciker"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/projadd_ev_datepaciker"
+        android:layout_width="248dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="false"
+        android:layout_marginTop="16dp"
+        android:editable="false"
+        android:ems="10"
+        android:hint="dd-mm-yyyy 00:00:00"
+        android:inputType="none"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.263"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descr_text" />
+
+
+    <EditText
+        android:id="@+id/descr_text"
+        android:layout_width="252dp"
+        android:layout_height="47dp"
+
+        android:layout_below="@+id/new_task_toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="44dp"
+        android:hint="Insert a description ..."
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/immagine" />
+
+    <ImageView
+        android:id="@+id/immagine"
+        android:layout_width="117dp"
+        android:layout_height="117dp"
+        android:layout_below="@+id/upload_button"
+        android:layout_marginTop="16dp"
+        android:clickable="false"
+        app:layout_constraintBottom_toTopOf="@+id/translateButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.459"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upload_button"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints"
+        tools:srcCompat="@tools:sample/avatars[1]" />
+
+    <ToggleButton
+        android:id="@+id/arrow_down_task"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/ic_arrow_down"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toEndOf="@+id/projadd_ev_datepaciker"
+        app:layout_constraintTop_toBottomOf="@+id/descr_text" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/new_task_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/cardview_dark_background"
+        app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"
+        app:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/projadd_pb_toolbar"
+        app:layout_constraintVertical_bias="1.0">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_addtask"
+            android:layout_width="wrap_content"
+            android:layout_height="67dp"
+            android:layout_gravity="bottom|right|end"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_add_white_24dp"
+            app:backgroundTint="#2196F3" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <ImageButton
+        android:id="@+id/voice_button"
+        android:layout_width="65dp"
+        android:layout_height="62dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_background"
+        app:layout_constraintStart_toEndOf="@+id/upload_button"
+        app:layout_constraintTop_toBottomOf="@+id/new_task_toolbar" />
+
+    <Button
+        android:id="@+id/translateButton"
+        android:layout_width="71dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="248dp"
+        android:text="Translate"
+        android:textSize="8sp"
+        android:visibility="visible"
+        app:layout_constraintStart_toEndOf="@+id/descr_text"
+        app:layout_constraintTop_toBottomOf="@+id/new_task_toolbar" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">mcc-fall-2019-g01</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="backend_project_req">https://mcc-fall-2019-g01-258815.appspot.com/project</string>
+    <string name="no_connection">No internet connection! Cannot be translated!</string>
+</resources>

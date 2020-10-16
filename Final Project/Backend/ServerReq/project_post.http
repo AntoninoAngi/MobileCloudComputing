@@ -1,0 +1,19 @@
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "administrator": "administrator",
+  "badge": "badge",
+  "creation_date": "2000-01-23T04:56:07.000+00:00",
+  "deadline": "2000-01-23T04:56:07.000+00:00",
+  "description": "description",
+  "individual_project": true,
+  "keywords": [
+    "keywords",
+    "keywords"
+  ],
+  "last_update": "2000-01-23T04:56:07.000+00:00",
+  "name": "name",
+  "project_id": "project_id",
+  "users_index": [
+    "iCUiFy6MtdO5x5m68FNUuAaSEdn1"
+  ]
+}' 'https://mcc-fall-2019-g01-258815.appspot.com/project'
+

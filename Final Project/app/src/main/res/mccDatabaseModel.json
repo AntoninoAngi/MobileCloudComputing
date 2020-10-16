@@ -1,0 +1,82 @@
+{
+    "comments":{
+        "____": "Firebase Realtime Database uses NoSQL JSON storage",
+        "___": "The design of the database depends on the queries to be made upon it",
+        "__": "The main design principle is to 'flatten' data (denormalized structure)",
+        "_": "because loading a node loads all nested data which can be very heavy",
+    },
+
+    "useful_links": {
+        "Firebase Realtime Database doc": "https://firebase.google.com/docs/database/android/start",
+        "YouTube channel Firebase Database for SQL Developers": "https://www.youtube.com/playlist?list=PLl-K7zZEsYLlP-k-RKFa7RyNPa9_wCH2s"
+    }
+}
+
+{
+    "users": {
+        "toto":{
+            "email": "toto@gmail.com",
+            "password": "******",
+            "profile_image": "https://firebase-cloud-store/toto.png",
+            "projects_index":{
+                "project_01": true,
+                "project_O07": true,
+                "comment#1": "We use an index for two-way relationships (users and projects)",
+                "comment#2": "This is redundant but accelerates queries a lot"
+            }
+        }
+    },
+
+    "projects": {
+        "project_007": {
+            "creation_date": "06112019",
+            "name": "MCC_project",
+            "description": "Disrupting",
+            "individual_project": false,
+            "administrator": "Alberto",
+            "last_update": "09112019",
+            "deadline": "01122019",
+            "badge": "https://firebase-cloud-store/james-bond.png",
+            "keywords": ["Super", "Mario", "Bros"],
+            "users_index": {
+                "Moritz": true,
+                "Daniele": true,
+                "Alberto": true,
+                "Antonino": true,
+                "Antoine": true
+            },
+            "tasks_users_index": {
+                "task_01": ["Antonino", "Alberto"],
+                "task_04": ["Moritz", "Daniele", "Antoine"]
+            },
+            "users_tasks_index": {
+                "Antonino": ["task_01", "task_02"],
+                "Moritz": ["task_03", "task_04"]
+            }
+        }
+    },
+
+    "tasks": {
+        "comment": "We sort tasks by project because this shoud be the only way we will query them",
+	"task_01": {
+	    "description": "Get used to OpenAPI",
+	    "status": "pending",
+	    "deadline": "12112019"
+	}
+    },
+
+    "attachments": {
+        "project_007": {
+            "picture_01": {
+                "name": "screenshot_main_activity.png",
+                "creation_date": "06112019",
+                "url": "https://firebase-cloud-store/screenshot_main_activity.png"
+            }
+        }
+    },
+
+    "keywords": {
+        "Mario": ["project_007", "project_008", "project_009"],
+        "Super": ["project_007"]
+    }
+}

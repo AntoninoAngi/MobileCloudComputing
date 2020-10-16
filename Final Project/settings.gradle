@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name='mcc-fall-2019-g01'

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Exercise04</string>
+    <string name="rotate">rotate</string>
+    <string name="upload">upload</string>
+    <string name="detect">detect</string>
+    <string name="text">Text:</string>
+</resources>
