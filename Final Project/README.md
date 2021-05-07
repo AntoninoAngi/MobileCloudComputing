@@ -38,10 +38,10 @@ If you have problems, questions, ideas or suggestions, please contact us by send
 
 | Partecipant | Contact |
 |--|--|
-| Angi Antonino | antonino.angi@aalto.fi |
+| Angi Antonino | antoninoangi96@gmail.com |
 | Ramos Alberto | alberto.fariacoutinhodasilveiraramos@aalto.fi |
 | Pace Daniele | daniele.pace@aalto.fi |
-| Müller Moritz | moritz.muller@aalto.fi |
+| Müller Moritz | moritz.mueller1707@gmail.com |
 | Bellami Antoine | antoinemichel.bellami@aalto.fi |
 
 
